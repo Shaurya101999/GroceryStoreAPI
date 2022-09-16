@@ -1,15 +1,35 @@
 const mongoose = require('mongoose');
-const customerSchema = new mongoose.Schema({
-  productList:{
+
+const orderedProductSchema = new mongoose.Schema({
+  name: {
       type: String,
       required: true
   },
-  totalPrice:{
+  quantity: {
       type: Number,
       required: true
   },
-  paymentInfo: {}
-})
+  price: {
+      type: Number,
+      required: true
+  },
+});
 
-const Customers = mongoose.model('Customers', CustomersSchema);
-module.exports = Customers;
+const orderSchema = new mongoose.Schema({
+    productList: [orderedProductSchema],
+
+    totalPrice: {
+        type: Number,
+    },
+
+    paymentType: {
+        type: "String",
+        enum: ["Upi", "Cash", "Internet-Banking"]
+    }
+}, {
+    timestamps: true
+});
+
+const Order = mongoose.model('Order', orderSchema);
+
+module.exports = Order;

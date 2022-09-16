@@ -1,0 +1,65 @@
+### CUSTOMERS
+### get all the customers
+GET http://localhost:8000/customers
+
+### Add a new customer to the database
+POST http://localhost:8000/customers
+Content-Type: application/json
+
+{
+  "name" : "user1",
+  "email" : "User1@gmail.com",
+  "phone" : 5555455555
+}
+
+### get specific customer orders
+GET  http://localhost:8000/customers/orders
+Content-Type: application/json
+
+{
+  "email" : "aaa",
+  "phone" : "555555555"
+}
+
+### get customer with max orders
+GET http://localhost:8000/customers/maxOrder
+
+
+
+### PRODUCTS
+### get all the products
+GET http://localhost:8000/products
+
+### Add a new product to the database
+POST http://localhost:8000/products
+Content-Type: application/json
+
+{
+  "productName" : "Mango", 
+  "productCategory" : "Fruit", 
+  "productInfo" : "", 
+  "price" : 10, 
+  "quantityAvailable" : "50"
+}
+
+### update product price
+PUT  http://localhost:8000/products/price
+Content-Type: application/json
+
+{
+  "product" : "Mango",
+  "price" : 20
+}
+
+
+### ORDERS
+### create a new order
+POST  http://localhost:8000/order
+Content-Type: application/json
+
+{
+  "email" : "User1",
+  "phone" : "aaa",
+  "products":[{"name" : "Mango", "quantity" : 40}, {"name": "Apple", "quantity" : 100}], 
+  "paymentType": "Cash"
+}
