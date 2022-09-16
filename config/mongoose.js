@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const dburl = 'mongodb+srv://shaurya:Varma1999@grocery.ctg76xn.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(dburl)
