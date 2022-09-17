@@ -4,10 +4,10 @@ const Customers = require('../models/customer');
 
 const createOrder = async (req, res) => {
   try {
-    const { email, phone, products, paymentType} = req.body;
+    const { phone, products, paymentType} = req.body;
 
     // check if all required fields are present
-    if ((!email || !phone) && !products && !paymentType) {
+    if ( !phone && !products && !paymentType) {
       return res.status(400).json({ message: 'Please enter email/phone, product and payment type' });
     }
 

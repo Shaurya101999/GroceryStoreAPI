@@ -15,8 +15,8 @@ const createProduct = async(req, res) => {
     const {productName, productCategory, productInfo, price, quantityAvailable} = req.body;
     
     // check if required fields are present
-    if (!productName || !productCategory || !price || !quantityAvailable) {
-      return res.status(400).json({'message': 'Please provide all data'})
+    if (!productName || !productCategory || !price || !quantityAvailable || NaN(price) || NaN(quantityAvailable)) {
+      return res.status(400).json({'message': 'Please provide all data in right format'})
     }
 
     // check if product is already available

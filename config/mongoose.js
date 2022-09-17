@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dburl = 'mongodb://localhost/grocerystoreapi'
+const dburl = (process.env.DB_URI) || 'mongodb://localhost/grocerystoreapi'
 // 'mongodb+srv://shaurya:Varma1999@grocery.ctg76xn.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(dburl)

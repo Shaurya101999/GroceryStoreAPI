@@ -17,7 +17,7 @@ const addCustomer = async (req, res) => {
   try {
     const {name, email, phone} = req.body;
     console.log(req.body);
-    if (!name || !email || !phone) {
+    if (!name || !email || !phone || NaN(phone)) {
       return res.status(400).json({ 'message': 'Name, email and phone are required' });
     }
 
@@ -52,9 +52,9 @@ const addCustomer = async (req, res) => {
 
 const getCustomerOrders = async (req, res) => {
   try{ 
-    console.log(req.body);
+
     const {phone} = req.body;
-    if(phone) {
+    if(phone && !NaN(phone)) {
       let customer = await Customers.findOne({phone: req.body.phone})
       customer= await customer.populate({ path: 'orders', model: Order })
         
