@@ -1,9 +1,14 @@
-### CUSTOMERS
-### get all the customers
+### CUSTOMERS 
+
+### get all the customers 
+
 GET http://localhost:8000/customers
 
+
 ### Add a new customer to the database
+
 POST http://localhost:8000/customers
+
 Content-Type: application/json
 
 {
@@ -12,25 +17,35 @@ Content-Type: application/json
   "phone" : 5515455555
 }
 
+
 ### get specific customer orders
+
 GET  http://localhost:8000/customers/orders
+
 Content-Type: application/json
 
 {
   "phone" : "5515455555"
 }
 
+
 ### get customer with max orders
+
 GET http://localhost:8000/customers/maxOrder
 
 
 
 ### PRODUCTS
+
 ### get all the products
+
 GET http://localhost:8000/products
 
+
 ### Add a new product to the database
+
 POST http://localhost:8000/products
+
 Content-Type: application/json
 
 {
@@ -41,8 +56,11 @@ Content-Type: application/json
   "quantityAvailable" : "500"
 }
 
+
 ### update product price
+
 PUT  http://localhost:8000/products/price
+
 Content-Type: application/json
 
 {
@@ -52,8 +70,11 @@ Content-Type: application/json
 
 
 ### ORDERS
+
 ### create a new order
+
 POST  http://localhost:8000/order
+
 Content-Type: application/json
 
 {
